@@ -19,6 +19,7 @@ interface ReposType {
   description: string;
   git_url: string;
   homepage: string;
+  html_url: string;
 }
 
 export const Project = (): JSX.Element => {
