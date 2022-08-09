@@ -31,5 +31,4 @@ export const stackData = [
     title: "React",
     img: imgReact,
   },
-  { title: "Vuejs", img: FaVuejs },
 ];
