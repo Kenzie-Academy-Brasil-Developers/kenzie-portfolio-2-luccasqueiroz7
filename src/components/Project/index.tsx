@@ -58,7 +58,7 @@ export const Project = (stack: any): JSX.Element => {
           }}
           color="grey4"
         >
-          Projetos {stack.stack}
+          Projects {stack.stack}
         </ProjectTitle>
       ) : (
         <ProjectTitle
@@ -75,7 +75,7 @@ export const Project = (stack: any): JSX.Element => {
           }}
           color="grey4"
         >
-          Outros Projetos
+          Other projects
         </ProjectTitle>
       )}
       {repositories?.map((repository) => (
@@ -91,7 +91,7 @@ export const Project = (stack: any): JSX.Element => {
 
           <ProjectStack>
             <Text type="body2" color="grey2">
-              Linguagem:
+              Language:
             </Text>
             {repository.topics.length > 0 ? (
               <ProjectStackTech>
