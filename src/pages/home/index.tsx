@@ -58,6 +58,12 @@ export const Home = (): JSX.Element => {
               projects
             </Text>
             <Text type="body1" color="grey2">
+              I've always been passionate about games and technology, when I got
+              to know programming in college, it was love at first sight, I knew
+              I wanted to go deeper and deeper into it and become the best
+              developer possible, with that, I joined Kenzie Academy Brasil and
+              today I'm proud to say that I am a Full Stack Developer.
+              <br></br>
               Discover here in this environment, created especially for you, all
               my projects and technologies
             </Text>
@@ -90,14 +96,34 @@ export const Home = (): JSX.Element => {
                 My projects
               </Text>
               <Text as="p" type="body1" color="grey2">
-                Projects created at{" "}
+                Projects created by{" "}
                 <Text as="span" color="brand5">
-                  Kenzie Academy
+                  Luccas Queiroz
                 </Text>
               </Text>
             </ProjectsAreaSocialMediaMessage>
+            <ProjectsAreaContent
+              css={{
+                width: "100%",
+                borderBottom: "3px solid $brand1",
+                padding: "0px 0px 15px",
+                marginBottom: "0px",
+              }}
+            >
+              <Project stack="back-end" />
+            </ProjectsAreaContent>
+            <ProjectsAreaContent
+              css={{
+                width: "100%",
+                borderBottom: "3px solid $brand1",
+                padding: "0px 0px 15px",
+                marginBottom: "0px",
+              }}
+            >
+              <Project stack="front-end" />
+            </ProjectsAreaContent>
             <ProjectsAreaContent>
-              <Project />
+              <Project stack="full-stack" />
             </ProjectsAreaContent>
           </ProjectAreaWrapperColumns>
         </Container>

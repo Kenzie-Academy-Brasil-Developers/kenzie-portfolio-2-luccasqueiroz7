@@ -20,9 +20,10 @@ interface ReposType {
   git_url: string;
   homepage: string;
   html_url: string;
+  topics: string;
 }
 
-export const Project = (): JSX.Element => {
+export const Project = (stack: any): JSX.Element => {
   const [repositories, setRepositories] = useState<ReposType[]>([]);
 
   useEffect(() => {
@@ -31,14 +32,52 @@ export const Project = (): JSX.Element => {
         `https://api.github.com/users/${userData.githubUser}/repos`
       );
       const json = await data.json();
-      setRepositories(json);
-      return json;
+      const filteredProjects = await json.filter((js: any) => {
+        return js.topics[0] == stack.stack;
+      });
+      setRepositories(filteredProjects);
+      return filteredProjects;
     };
     fetchData();
   }, []);
 
   return (
     <>
+      {stack.stack ? (
+        <ProjectTitle
+          as="h1"
+          type="heading1"
+          css={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            border: "10px solid $brand1",
+            borderRadius: "50px",
+            marginTop: "100px",
+          }}
+          color="grey4"
+        >
+          Projetos {stack.stack}
+        </ProjectTitle>
+      ) : (
+        <ProjectTitle
+          as="h1"
+          type="heading1"
+          css={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            border: "10px solid $brand1",
+            borderRadius: "50px",
+            marginTop: "100px",
+          }}
+          color="grey4"
+        >
+          Outros Projetos
+        </ProjectTitle>
+      )}
       {repositories?.map((repository) => (
         <ProjectWrapper key={repository.id}>
           <ProjectTitle
@@ -54,10 +93,10 @@ export const Project = (): JSX.Element => {
             <Text type="body2" color="grey2">
               Linguagem:
             </Text>
-            {repository.language ? (
+            {repository.topics.length > 0 ? (
               <ProjectStackTech>
                 <Text color="grey2" type="body2">
-                  {repository.language}
+                  {repository.topics[1]}
                 </Text>
               </ProjectStackTech>
             ) : (
@@ -70,7 +109,9 @@ export const Project = (): JSX.Element => {
           </ProjectStack>
 
           <Text type="body1" color="grey2">
-            {repository.description?.substring(0, 129)}
+            {repository.description?.length > 129
+              ? repository.description.substring(0, 129) + "..."
+              : repository.description.substring(0, 129)}
           </Text>
           <ProjectLinks>
             <ProjectLink target="_blank" href={repository.html_url}>
