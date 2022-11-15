@@ -10,6 +10,8 @@
   "dependencies": {
     "@stitches/react": "^1.2.8",
     "framer-motion": "^6.4.2",
+    "i18next": "^22.0.5",
+    "i18next-browser-languagedetector": "^7.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.4.0",

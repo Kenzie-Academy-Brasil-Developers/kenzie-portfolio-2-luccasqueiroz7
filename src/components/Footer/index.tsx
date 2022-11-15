@@ -7,6 +7,8 @@ import { FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa";
 import { Button } from "@/styles/Buttons";
 import { HandEffect } from "../HandEffect";
 
+import { i18n } from "../../translate/i18n";
+
 export const Footer = (): JSX.Element => {
   return (
     <FooterWrapper id="social-media">
@@ -21,22 +23,39 @@ export const Footer = (): JSX.Element => {
           />
           <Box css={{ marginLeft: "$2" }}>
             <Text type="heading4" color="grey5" css={{ marginBottom: "$2" }}>
-              Thank you!{" "}
-             <HandEffect />
+              {i18n.t("socialMedia.thanks")} <HandEffect />
             </Text>
             <Text type="body1" color="grey2">
-              Follow me on my social networks and let's talk
+              {i18n.t("socialMedia.followMe")}
             </Text>
           </Box>
         </Flex>
         <Flex>
-          <Button className="instagram" type="circle" as="a" target="_blank" href={`https://instagram.com/${userData.instagramUser}`}>
+          <Button
+            className="instagram"
+            type="circle"
+            as="a"
+            target="_blank"
+            href={`https://instagram.com/${userData.instagramUser}`}
+          >
             <FaInstagram />
           </Button>
-          <Button className="facebook" type="circle" as="a" target="_blank" href={`https://fb.com/${userData.facebookUser}`}>
+          <Button
+            className="facebook"
+            type="circle"
+            as="a"
+            target="_blank"
+            href={`https://fb.com/${userData.facebookUser}`}
+          >
             <FaFacebookF />
           </Button>
-          <Button className="linkedin" type="circle" as="a" target="_blank" href={`https://linkedin.com/in/${userData.linkedinUser}`}>
+          <Button
+            className="linkedin"
+            type="circle"
+            as="a"
+            target="_blank"
+            href={`https://linkedin.com/in/${userData.linkedinUser}`}
+          >
             <FaLinkedinIn />
           </Button>
         </Flex>

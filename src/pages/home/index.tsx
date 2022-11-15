@@ -28,6 +28,8 @@ import {
 } from "./style";
 import { HandEffect } from "@/components/HandEffect";
 
+import { i18n } from "../../translate/i18n";
+
 export const Home = (): JSX.Element => {
   return (
     <main id="home">
@@ -43,33 +45,28 @@ export const Home = (): JSX.Element => {
                 height={"48px"}
               />
               <Text color="grey4" css={{ marginLeft: "$2" }}>
-                Hello, my name is {userData.nameUser} <HandEffect />
+                {i18n.t("home.name")} {userData.nameUser} <HandEffect />
               </Text>
             </Flex>
             <Text as="h1" type="heading1" color="grey5">
-              I{" "}
+              {i18n.t("home.i")}{" "}
               <Text as="span" type="heading1" color="brand1">
-                love
+                {i18n.t("home.love")}
               </Text>{" "}
-              creating and{" "}
+              {i18n.t("home.creatingAnd")}{" "}
               <Text as="span" type="heading1" color="brand1">
-                developing
+                {i18n.t("home.developing")}
               </Text>{" "}
-              projects
+              {i18n.t("home.projects")}
             </Text>
             <Text type="body1" color="grey2">
-              I've always been passionate about games and technology, when I got
-              to know programming in college, it was love at first sight, I knew
-              I wanted to go deeper and deeper into it and become the best
-              developer possible, with that, I joined Kenzie Academy Brasil and
-              today I'm proud to say that I am a Full Stack Developer.
+              {i18n.t("home.aboutMe")}
               <br></br>
-              Discover here in this environment, created especially for you, all
-              my projects and technologies
+              {i18n.t("home.discover")}
             </Text>
             <HeaderButtonsArea>
               <Button as="a" type="primary" href="#projects">
-                See Projects
+                {i18n.t("home.seeProjects")}
               </Button>
               <Button
                 as="a"
@@ -93,12 +90,12 @@ export const Home = (): JSX.Element => {
           <ProjectAreaWrapperColumns>
             <ProjectsAreaSocialMediaMessage>
               <Text as="h2" type="heading4" color="grey4">
-                My projects
+                {i18n.t("projects.myProjects")}
               </Text>
               <Text as="p" type="body1" color="grey2">
-                Projects created by{" "}
+                {i18n.t("projects.projectsCreated")}{" "}
                 <Text as="span" color="brand5">
-                  Luccas Queiroz
+                  {userData.nameUser}
                 </Text>
               </Text>
             </ProjectsAreaSocialMediaMessage>

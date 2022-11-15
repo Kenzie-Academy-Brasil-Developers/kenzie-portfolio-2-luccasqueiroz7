@@ -16,7 +16,7 @@ export const Navbar = styled("nav", {
     display: "flex",
     justifyContent: "space-between",
     "@mobile": {
-        flexDirection: "column"
+      flexDirection: "column",
     },
   },
 });
@@ -32,7 +32,7 @@ export const LogoTipoText = styled("span", {
   fontFamily: '"IBM Plex Sans"',
   "@mobile": {
     fontSize: "1rem",
-  }
+  },
 });
 
 export const NavbarLinks = styled(Flex, {
@@ -43,12 +43,25 @@ export const NavbarLinks = styled(Flex, {
     [`& ${Button}`]: {
       width: "100%",
       justifyContent: "flex-start",
-      paddingLeft: 0
+      paddingLeft: 0,
     },
   },
 });
 
 export const NavbarMobileArea = styled("div", {
-   display: "flex",
-   justifyContent: "space-between"
+  display: "flex",
+  justifyContent: "space-between",
+});
+
+export const DivLanguages = styled("div", {
+  display: "flex",
+  alignItems: "center",
+});
+
+export const SelectLanguage = styled("select", {
+  height: "30px",
+  marginLeft: "10px",
+  backgroundColor: "black",
+  color: "$grey4",
+  padding: "0px 0px 0px 5px",
 });

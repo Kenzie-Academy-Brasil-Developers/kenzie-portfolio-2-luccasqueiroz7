@@ -8,12 +8,17 @@ import {
   LogoTipoText,
   NavbarLinks,
   NavbarMobileArea,
+  SelectLanguage,
+  DivLanguages,
 } from "./style";
 
 import { FaGithub, FaLinkedinIn, FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { Button } from "@/styles/Buttons";
 import { Container } from "@/styles/Global";
+
+import { i18n } from "../../translate/i18n";
+import { MdLanguage } from "react-icons/md";
 
 export interface MenuButtonOpen {
   open: Boolean;
@@ -55,20 +60,35 @@ export const NavBar = (): JSX.Element => {
 };
 
 export const NavLinks = (): JSX.Element => {
+  const I18N_STORAGE_KEY = "i18nextLng";
+
+  const handleSelectChange = (event: any) => {
+    localStorage.setItem(I18N_STORAGE_KEY, event.target.value);
+    location.reload();
+  };
+
   return (
     <NavbarLinks>
       <Button type="btLink" as="a" color="grey4" href={`#home`}>
-        About Me
+        {i18n.t("header.home")}
       </Button>
       <Button type="btLink" as="a" color="grey4" href={`#projects`}>
-        Projects
+        {i18n.t("header.projects")}
       </Button>
       <Button type="btLink" as="a" color="grey4" href={`#contact`}>
-        Contact
+        {i18n.t("header.contact")}
       </Button>
       <Button type="btLink" as="a" color="grey4" href={`#social-media`}>
-        Social Media
+        {i18n.t("header.socialMedia")}
       </Button>
+      <DivLanguages>
+        <MdLanguage color="white" />
+        <SelectLanguage onChange={handleSelectChange}>
+          <option>{i18n.t("header.language")}</option>
+          <option value="pt-BR">pt-BR</option>
+          <option value="en-US">en-US</option>
+        </SelectLanguage>
+      </DivLanguages>
     </NavbarLinks>
   );
 };

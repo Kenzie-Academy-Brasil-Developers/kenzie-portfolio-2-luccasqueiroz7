@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 import { FaGithub, FaShare } from "react-icons/fa";
 import { userData } from "@/utils/userData";
 
+import { i18n } from "../../translate/i18n";
+
 interface ReposType {
   id: number;
   name: string;
@@ -58,7 +60,7 @@ export const Project = (stack: any): JSX.Element => {
           }}
           color="grey4"
         >
-          Projects {stack.stack}
+          {i18n.t("projects.stack")} {stack.stack}
         </ProjectTitle>
       ) : (
         <ProjectTitle
@@ -75,7 +77,7 @@ export const Project = (stack: any): JSX.Element => {
           }}
           color="grey4"
         >
-          Other projects
+          {i18n.t("projects.otherProjects")}
         </ProjectTitle>
       )}
       {repositories?.map((repository) => (
@@ -91,7 +93,7 @@ export const Project = (stack: any): JSX.Element => {
 
           <ProjectStack>
             <Text type="body2" color="grey2">
-              Language:
+              {i18n.t("projects.language")}:
             </Text>
             {repository.topics.length > 0 ? (
               <ProjectStackTech>
@@ -102,7 +104,7 @@ export const Project = (stack: any): JSX.Element => {
             ) : (
               <ProjectStackTech>
                 <Text color="grey2" type="body2">
-                  Not identified
+                  {i18n.t("projects.languageNotIdentified")}
                 </Text>
               </ProjectStackTech>
             )}
@@ -115,11 +117,11 @@ export const Project = (stack: any): JSX.Element => {
           </Text>
           <ProjectLinks>
             <ProjectLink target="_blank" href={repository.html_url}>
-              <FaGithub /> Github Code
+              <FaGithub /> {i18n.t("projects.github")}
             </ProjectLink>
             {repository.homepage && (
               <ProjectLink target="_blank" href={repository.homepage}>
-                <FaShare /> Aplicação
+                <FaShare /> {i18n.t("projects.application")}
               </ProjectLink>
             )}
           </ProjectLinks>
